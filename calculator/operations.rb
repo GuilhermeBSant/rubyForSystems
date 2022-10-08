@@ -11,7 +11,15 @@ module Calculator
     end
   
     def no_integers(numbers)
-  
+      if(numbers.length >= 2)
+        if(numbers.end_with?("00") || numbers.end_with?("25") || numbers.end_with?("50") || numbers.end_with?("50"))
+          puts "\nO número #{numbers} é divisível por 25!\n\n"
+        else
+          puts "\nO número #{numbers} NÃO é divisível por 25!\n\n"
+        end 
+      else
+        puts "\nO número #{numbers} NÃO é divisível por 25\n\n"
+      end
     end
   
     def filter_films(genres, year)
@@ -50,6 +58,7 @@ module Calculator
             end
           end
         end  
+        
     end
 
     if(movieCounter==0)

@@ -21,8 +21,9 @@ module Calculator
       when "1" 
         biased_mean({"Tomás":10, "Iury":10, "Vini":10, "Arnaldo": 9.2}, 'Iury Tomás')
       when "2"
-        print "Informe aqui o numero para saber se é divisível"
-        no_integers()
+        print "Informe aqui o numero para saber se é divisível: "
+        number = gets.chomp
+        @op.no_integers(number)
       when "3"
         print "Gêneros disponíveis: \nComedy, Fantasy, Crime, Drama, Music, Adventure, History, Thriller, Animation, Family, Mystery, Biography, Action, Film-Noir, Film-Noir, Romance, Sci-Fi, War, Western, Horror, Musical, Sport\n"
         print "Escolha quantos gêneros quiser para filtrar(separado por espaços): "
