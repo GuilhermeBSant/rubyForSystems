@@ -11,15 +11,19 @@ module Calculator
     end
   
     def no_integers(numbers)
-      if(numbers.length >= 2)
-        if(numbers.end_with?("00") || numbers.end_with?("25") || numbers.end_with?("50") || numbers.end_with?("50"))
-          puts "\nO número #{numbers} é divisível por 25!\n\n"
+      arrayForNumbers = numbers.split
+      finalArray = arrayForNumbers.map do |i|
+        if(i.length >= 2)
+          if(i.end_with?("00") || i.end_with?("25") || i.end_with?("50") || i.end_with?("50"))
+            "S"
+          else
+            "N"
+          end 
         else
-          puts "\nO número #{numbers} NÃO é divisível por 25!\n\n"
-        end 
-      else
-        puts "\nO número #{numbers} NÃO é divisível por 25\n\n"
+          "N"
+        end
       end
+      puts finalArray
     end
   
     def filter_films(genres, year)
