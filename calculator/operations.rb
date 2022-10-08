@@ -33,11 +33,13 @@ module Calculator
       end
 
       movieCounter = 0
+      genreCount = 0
       
       films = get_films()
       print "\n----------Filmes Disponíveis----------\n\n"
       movies = films[:movies].map do |key|
-        
+      
+
         moviesGenresArray = []
         moviesGenresArray.push(key[:genres])
         
@@ -50,15 +52,27 @@ module Calculator
         movieYear = key[:year].to_i
 
         if(movieYear >= year.to_i)
-          genresArray.each do |i|
-            if(moviesGenresArray[0].include?(i))
-              movieCounter += 1 
-              puts key[:title]
-              break
+
+          if(genresArray.length == 1)
+            genresArray.each do |i|
+              if(moviesGenresArray[0].include?(i))
+                movieCounter += 1 
+                puts key[:title]
+              end
             end
+          else 
+          arrayForCompare = moviesGenresArray[0].select do |i|
+            genresArray.include?(i)
           end
+          movieCounter += 1 
+          if(arrayForCompare == genresArray)
+            puts key[:title]
+          end
+           
+          end
+
         end  
-        
+
     end
 
     if(movieCounter==0)
