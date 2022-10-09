@@ -39,7 +39,7 @@ module Calculator
         year.to_i
         @op.filter_films(genre, year)
       when "4"
-        
+        abort("Calculadora Finalizada!")
       else
         puts "Infelizmente não existe essa opção!"
       end
