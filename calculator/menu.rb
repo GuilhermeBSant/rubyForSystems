@@ -19,7 +19,12 @@ module Calculator
     def chooseOperation
       case @resultado
       when "1" 
-        biased_mean({"Tomás":10, "Iury":10, "Vini":10, "Arnaldo": 9.2}, 'Iury Tomás')
+        print "Informe o nome de todos os alunos(com essa notação: {'Tomás':10, 'Iury':10}): "
+        json = gets.chomp
+        print "Informe o nome dos alunos que deseja retirar da média(nomes entre espaços): "
+        blacklist = gets.chomp
+        @op.biased_mean(json, blacklist)
+        #@op.biased_mean({"Tomás":10, "Iury":10, "Vini":10, "Arnaldo": 9.2}, blacklist)
       when "2"
         print "Informe aqui os números para saber se são divisíveis(números entre espaços): "
         number = gets.chomp

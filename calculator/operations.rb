@@ -7,7 +7,27 @@ module Calculator
     include ExtraOperations
   
     def biased_mean(grades, blacklist)
-      
+      hash = grades
+      nHash =JSON.parse(hash.to_json)
+
+      arrayForNames = blacklist.split
+      arrayForNames.each do |i|
+        nHash.delete(i)
+      end
+
+      media = 0
+
+      nHash.each do |k,v|
+        media += v
+      end
+
+      if (nHash.length == 1)
+        media = media
+      else
+        media /= nHash.length
+      end
+
+      puts "\nA média é: #{media} \n"
     end
   
     def no_integers(numbers)
